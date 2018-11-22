@@ -1,15 +1,14 @@
 package kea.datamatiker.mandatory2.Model;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+
 import javax.persistence.*;
 
 
-
+@Entity
 public class Login {
     //Fields
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String username;
     private String password;
@@ -38,10 +37,6 @@ public class Login {
 
     //Methods
 
-    /**
-     * This method verifies the user and checks if both username and password match up
-     * @return Boolean Returns true if info is correct or false if incorrect
-     */
     /*public Boolean verifyUser() {
         Connection con = AccessDB.getConnection();
         String getSQL = "SELECT username, password, accessLevel FROM login WHERE username = ?";

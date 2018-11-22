@@ -1,6 +1,15 @@
 package kea.datamatiker.mandatory2.Model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Course {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long courseId;
     private String nameInDanish;
     private String nameInEnglish;
     private String studyProgramme;
@@ -39,6 +48,9 @@ public class Course {
 
     }
 
+    public Course(String nameInDanish, String nameInEnglish){
+
+    }
     public String getNameInDanish() {
         return nameInDanish;
     }
