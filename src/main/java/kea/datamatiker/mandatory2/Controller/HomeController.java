@@ -1,6 +1,5 @@
 package kea.datamatiker.mandatory2.Controller;
 
-import jdk.javadoc.internal.doclets.formats.html.SourceToHTMLConverter;
 import kea.datamatiker.mandatory2.Model.Login;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,7 +12,6 @@ import org.springframework.web.servlet.ModelAndView;
 
         @GetMapping({"/", "index"})
         public String index() {
-            System.out.println("Hej");
          return "index";
         }
 
