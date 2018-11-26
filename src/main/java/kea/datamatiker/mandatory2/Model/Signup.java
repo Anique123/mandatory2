@@ -4,9 +4,9 @@ import javax.persistence.*;
 
 @Entity
 public class Signup extends Course {
-    @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long applicationId;
+    @Id
+    private Long id;
     private String name;
 
     @OneToOne
@@ -16,25 +16,25 @@ public class Signup extends Course {
 
     }
 
-    public Signup(Long applicationId, String name){
-        this.applicationId = applicationId;
+    public Signup(Long id, String name){
+        this.id = id;
         this.name = name;
 
     }
 
-    public Signup(Long applicationId, String name, Course course){
-        this.applicationId = applicationId;
+    public Signup(Long id, String name, Course course){
+        this.id = id;
         this.name = name;
         this.course = course;
 
     }
 
-    public Long getApplicationId() {
-        return applicationId;
+    public Long getId() {
+        return id;
     }
 
-    public void setApplicationId(Long applicationId) {
-        this.applicationId = applicationId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {

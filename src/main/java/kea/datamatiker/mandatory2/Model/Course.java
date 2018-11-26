@@ -7,9 +7,9 @@ import javax.persistence.Id;
 
 @Entity
 public class Course {
-    @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long courseId;
+    @Id
+    private Long id;
     private String nameInDanish;
     private String nameInEnglish;
     private String studyProgramme;
@@ -26,7 +26,8 @@ public class Course {
     private String examForm;
     private String[] teachers;
 
-    public Course(String nameInDanish, String nameInEnglish, String studyProgramme, String courseType, Integer ects, String courseLanguage, String minNoOfStudenst, String expectedNoOfStudents, String maxNoOfStudents, String prereuisitues, String learningOutcome, String content, String learningActivities, String examForm, String[] teachers) {
+    public Course(Long id,String nameInDanish, String nameInEnglish, String studyProgramme, String courseType, Integer ects, String courseLanguage, String minNoOfStudenst, String expectedNoOfStudents, String maxNoOfStudents, String prereuisitues, String learningOutcome, String content, String learningActivities, String examForm, String[] teachers) {
+        this.id=id;
         this.nameInDanish = nameInDanish;
         this.nameInEnglish = nameInEnglish;
         this.studyProgramme = studyProgramme;
