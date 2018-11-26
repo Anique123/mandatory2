@@ -3,38 +3,31 @@ package kea.datamatiker.mandatory2.Model;
 import javax.persistence.*;
 
 @Entity
-public class Signup extends Course {
-    @GeneratedValue(strategy = GenerationType.AUTO)
+public class Signup {
     @Id
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long applicationId;
     private String name;
 
     @OneToOne
     private Course course;
 
+
     public Signup(){
 
     }
 
-    public Signup(Long id, String name){
-        this.id = id;
+    public Signup(Long applicationId, String name){
         this.name = name;
 
     }
 
-    public Signup(Long id, String name, Course course){
-        this.id = id;
-        this.name = name;
-        this.course = course;
-
+    public Long getApplicationId() {
+        return applicationId;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
+    public void setApplicationId(Long applicationId) {
+        this.applicationId = applicationId;
     }
 
     public String getName() {
@@ -45,11 +38,4 @@ public class Signup extends Course {
         this.name = name;
     }
 
-    public Course getCourse() {
-        return course;
-    }
-
-    public void setCourse(Course course) {
-        this.course = course;
-    }
 }
