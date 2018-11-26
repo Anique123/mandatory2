@@ -4,10 +4,14 @@ import kea.datamatiker.mandatory2.Model.Login;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
+import sun.security.krb5.PrincipalName;
+
+import java.security.Principal;
 
 
-    @Controller
+@Controller
     public class HomeController {
 
         @GetMapping("/")
@@ -24,6 +28,13 @@ import org.springframework.web.servlet.ModelAndView;
         public String login() {
             return "login";
         }
+
+        @PostMapping("/login")
+        public String adminLoggedIn(){
+
+            return"adminstration/index";
+        }
+
 
 
 
