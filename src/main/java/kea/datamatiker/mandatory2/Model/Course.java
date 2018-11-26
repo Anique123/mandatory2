@@ -25,6 +25,7 @@ public class Course {
     private String learningActivities;
     private String examForm;
     private String[] teachers;
+    private String signUpToCourse;
 
     public Course(String nameInDanish, String nameInEnglish, String studyProgramme, String courseType, Integer ects, String courseLanguage, String minNoOfStudenst, String expectedNoOfStudents, String maxNoOfStudents, String prereuisitues, String learningOutcome, String content, String learningActivities, String examForm, String[] teachers) {
         this.nameInDanish = nameInDanish;

@@ -10,15 +10,21 @@ import org.springframework.web.servlet.ModelAndView;
     @Controller
     public class HomeController {
 
-        @GetMapping({"/", "index"})
-        public String index() {
-         return "index";
+        @GetMapping("/")
+        public String root() {
+            return "index";
         }
 
-        @GetMapping("teacher")
-        public String teacher(){
-            return "teacher";
+        @GetMapping("/student")
+        public String userIndex() {
+            return "student/index";
         }
+
+        @GetMapping("/login")
+        public String login() {
+            return "login";
+        }
+
 
 
 

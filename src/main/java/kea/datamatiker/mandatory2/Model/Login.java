@@ -9,7 +9,7 @@ public class Login {
     //Fields
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private Long loginId;
     private String username;
     private String password;
 
@@ -25,57 +25,20 @@ public class Login {
         this.password = password;
     }
 
-    public Login(String username, String password, int id) {
-        this.username = username;
-        this.password = password;
-        this.id = id;
-    }
 
     public Login(){
 
     }
 
-    //Methods
-
-    /*public Boolean verifyUser() {
-        Connection con = AccessDB.getConnection();
-        String getSQL = "SELECT username, password, accessLevel FROM login WHERE username = ?";
-        try {
-            PreparedStatement preparedStatement = con.prepareStatement(getSQL);
-            preparedStatement.setString(1, username);
-            ResultSet rs = preparedStatement.executeQuery();
-            if (rs != null) {
-                while (rs.next()) {
-                    try {
-                        if (username.equals(rs.getString("username")) && password.equals(rs.getString("password"))) {
-                            accessLevel = rs.getInt("accessLevel");
-                            return true;
-                        } else {
-                            accessLevel = 0;
-                            return false;
-                        }
-
-                    } catch (SQLException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-            preparedStatement.close();
-            con.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return false;
-    }*/
 
     /**
      * This method redirects a user baded upon accessLevel
      *
      * @return String Returns a String used to redirect user
      */
-    public String redirect() {
+    /*public String redirect() {
         String redirectPage = "";
-        switch (id) {
+        switch () {
             //Owner
             case 1:
                 redirectPage = "owner_page";
@@ -95,7 +58,7 @@ public class Login {
 
         }
         return redirectPage;
-    }
+    }*/
 
 
     /*Getters and setters*/
@@ -116,12 +79,12 @@ public class Login {
         this.password = password;
     }
 
-    public int getId() {
-        return id;
+    public Long getLoginId() {
+        return loginId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setLoginId(Long loginId) {
+        this.loginId = loginId;
     }
 
     @Override
