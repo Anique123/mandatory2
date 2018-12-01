@@ -6,9 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
-import sun.security.krb5.PrincipalName;
 
-import java.security.Principal;
 
 
 @Controller
@@ -29,11 +27,11 @@ import java.security.Principal;
             return "login";
         }
 
-        @PostMapping("/login")
+        /*@PostMapping("/login")
         public String adminLoggedIn(){
 
-            return"adminstration/index";
-        }
+            return"teacher/index";
+        }*/
 
 
 

@@ -1,5 +1,6 @@
 package kea.datamatiker.mandatory2.Config;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
@@ -15,13 +16,25 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 
 @Configuration
 @EnableWebSecurity
-public class MultipleLoginSecurityConfig {
+public class MultipleLoginSecurityConfig extends WebSecurityConfigurerAdapter {
 
-    @Bean
-    public UserDetailsService userDetailsService() throws Exception {
+
+
+    CustomSuccessHandler customSuccessHandler;
+
+    @Autowired
+    public void configureSecurity(AuthenticationManagerBuilder auth) throws Exception {
+        auth.inMemoryAuthentication().withUser("admin").password("admin").roles("ADMIN");
+        auth.inMemoryAuthentication().withUser("student").password("student").roles("STUDENT");
+        auth.inMemoryAuthentication().withUser("teacher").password("teacher").roles("TEACHER");
+    }
+
+    /*@Bean
+    public UserDetailsService userDetailsService() {
         InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
-        manager.createUser(User.withUsername("student").password(encoder().encode("studentPass")).roles("STUDENT").build());
-        manager.createUser(User.withUsername("admin").password(encoder().encode("adminPass")).roles("ADMIN").build());
+        manager.createUser(User.withUsername("student").password(encoder().encode("student")).roles("STUDENT").build());
+        manager.createUser(User.withUsername("admin").password(encoder().encode("admin")).roles("ADMIN").build());
+        manager.createUser(User.withUsername("teacher").password(encoder().encode("teacher")).roles("TEACHER").build());
         return manager;
     }
 
@@ -45,9 +58,10 @@ public class MultipleLoginSecurityConfig {
 
         @Override
         protected void configure(HttpSecurity http) throws Exception {
-            http.antMatcher("/admin*").authorizeRequests().anyRequest().hasRole("ADMIN")
+            http.authorizeRequests()
+                    .antMatchers("/admin*").access("hasRole('ADMIN')")
                     // log in
-                    .and().formLogin().loginPage("/login").loginProcessingUrl("/admin_login").failureUrl("/loginAdmin?error=loginError").defaultSuccessUrl("/adminstration/index")
+                    .and().formLogin().loginPage("/login").successHandler()
                     // logout
                     .and().logout().logoutUrl("/admin_logout").logoutSuccessUrl("/protectedLinks").deleteCookies("JSESSIONID").and().exceptionHandling().accessDeniedPage("/403").and().csrf().disable();
         }
@@ -74,5 +88,28 @@ public class MultipleLoginSecurityConfig {
                     .and().logout().logoutUrl("/user_logout").logoutSuccessUrl("/protectedLinks").deleteCookies("JSESSIONID").and().exceptionHandling().accessDeniedPage("/403").and().csrf().disable();
         }
     }
+
+    @Configuration
+    @Order(3)
+    public static class App3ConfigurationAdapter extends WebSecurityConfigurerAdapter {
+
+        public App3ConfigurationAdapter() {
+            super();
+        }
+
+        @Override
+        protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+            auth.inMemoryAuthentication().withUser("teacher").password(encoder().encode("teacher")).roles("TEACHER");
+        }
+
+        protected void configure(HttpSecurity http) throws Exception {
+            http.antMatcher("/teacher*").authorizeRequests().anyRequest().hasRole("TEACHER")
+                    // log in
+                    .and().formLogin().loginPage("/loginTeacher").loginProcessingUrl("/teacher_login").failureUrl("/loginTeacher?error=loginError").defaultSuccessUrl("/teacher/index")
+                    // logout
+                    .and().logout().logoutUrl("/user_logout").logoutSuccessUrl("/protectedLinks").deleteCookies("JSESSIONID").and().exceptionHandling().accessDeniedPage("/403").and().csrf().disable();
+        }
+    }*/
+
 
 }
