@@ -6,6 +6,5 @@ import kea.datamatiker.mandatory2.Model.Teacher;
 import java.util.List;
 
 public interface TeacherRepository extends CrudRepository<Teacher, Long> {
-    Teacher findByName(String lastName);
-    List<Teacher> findAll();
+    Teacher findBylastName(String lastName);
 }

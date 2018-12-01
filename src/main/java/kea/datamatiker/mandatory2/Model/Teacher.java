@@ -14,9 +14,10 @@ public class Teacher {
     private String role;
 
 
-    public Teacher(String firstName, String lastName) {
+    public Teacher(String firstName, String lastName, String role) {
         this.firstName = firstName;
         this.lastName = lastName;
+        this.role = role;
     }
 
     public Long getId() {
