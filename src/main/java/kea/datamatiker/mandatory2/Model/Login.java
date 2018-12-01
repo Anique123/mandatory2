@@ -12,6 +12,7 @@ public class Login {
     private Long loginId;
     private String username;
     private String password;
+    private String role;
 
 
     /**
@@ -85,6 +86,14 @@ public class Login {
 
     public void setLoginId(Long loginId) {
         this.loginId = loginId;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 
     @Override
