@@ -1,6 +1,8 @@
 package kea.datamatiker.mandatory2.Model;
 
 
+import kea.datamatiker.mandatory2.Repository.LoginRepository;
+
 import javax.persistence.*;
 
 

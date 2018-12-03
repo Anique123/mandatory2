@@ -1,5 +1,7 @@
 package kea.datamatiker.mandatory2.Model;
 
+import kea.datamatiker.mandatory2.Repository.StudentRepository;
+
 import javax.persistence.*;
 
 @Entity

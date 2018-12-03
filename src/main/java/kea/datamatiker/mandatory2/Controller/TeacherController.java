@@ -10,4 +10,8 @@ public class TeacherController {
     public String teacher(){
         return "teacher/index";
     }
+
+
 }
+
+

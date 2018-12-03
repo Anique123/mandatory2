@@ -1,5 +1,7 @@
 package kea.datamatiker.mandatory2.Model;
 
+import kea.datamatiker.mandatory2.Repository.CourseRepository;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -27,8 +29,7 @@ public class Course {
     private String[] teachers;
     private String signUpToCourse;
 
-    public Course(Long id,String nameInDanish, String nameInEnglish, String studyProgramme, String courseType, Integer ects, String courseLanguage, String minNoOfStudenst, String expectedNoOfStudents, String maxNoOfStudents, String prereuisitues, String learningOutcome, String content, String learningActivities, String examForm, String[] teachers) {
-        this.id=id;
+    public Course( String nameInDanish, String nameInEnglish, String studyProgramme, String courseType, Integer ects, String courseLanguage, String minNoOfStudenst, String expectedNoOfStudents, String maxNoOfStudents, String prereuisitues, String learningOutcome, String content, String learningActivities, String examForm, String[] teachers) {
         this.nameInDanish = nameInDanish;
         this.nameInEnglish = nameInEnglish;
         this.studyProgramme = studyProgramme;
@@ -46,13 +47,18 @@ public class Course {
         this.teachers = teachers;
     }
 
-    public Course(){
+    public Course() {
 
     }
 
-    public Course(String nameInDanish, String nameInEnglish){
-
+    public Long getId() {
+        return id;
     }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public String getNameInDanish() {
         return nameInDanish;
     }
@@ -171,5 +177,13 @@ public class Course {
 
     public void setTeachers(String[] teachers) {
         this.teachers = teachers;
+    }
+
+    public String getSignUpToCourse() {
+        return signUpToCourse;
+    }
+
+    public void setSignUpToCourse(String signUpToCourse) {
+        this.signUpToCourse = signUpToCourse;
     }
 }
