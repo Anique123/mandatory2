@@ -10,7 +10,7 @@ public class Student {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long studentId;
     private String name;
-    private String surName;
+    private String lastName;
     private String[] courses;
     private String role;
 
@@ -18,9 +18,9 @@ public class Student {
     private Login login;
 
 
-    public Student(String name, String surName, Login login) {
+    public Student(String name, String lastName, Login login) {
         this.name = name;
-        this.surName = surName;
+        this.lastName = lastName;
         this.login = login;
     }
 
@@ -40,12 +40,12 @@ public class Student {
         this.name = name;
     }
 
-    public String getSurName() {
-        return surName;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setSurName(String surName) {
-        this.surName = surName;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String[] getCourses() {
