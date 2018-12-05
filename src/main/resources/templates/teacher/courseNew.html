@@ -23,8 +23,8 @@
 
 
             <div class="form-group">
-                <label for="inputUser">teachers</label>
-                <select id="inputUser" class="form-control" th:field="${course.teachers}" required="true">
+                <label for="inputTeacher">Teachers</label>
+                <select id="inputTeacher" class="form-control" th:field="${course.teacher}" required="true">
                     <option value="" selected="true">Choose...</option>
                     <option th:each="teacher:${teachers}" th:value="${teacher.id}" th:text="${teacher.firstName}"></option>
                 </select>

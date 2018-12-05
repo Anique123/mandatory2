@@ -23,12 +23,12 @@ public class Course {
     private String examForm;
 
     @OneToOne
-    private Teacher teachers;
+    private Teacher teacher;
 
     @OneToOne
     private Student signUpToCourse;
 
-    public Course(String nameInDanish, String nameInEnglish, String studyProgramme, String courseType, Integer ects, String courseLanguage, String minNoOfStudenst, String expectedNoOfStudents, String maxNoOfStudents, String prereuisitues, String learningOutcome, String content, String learningActivities, String examForm, Teacher teachers) {
+    public Course(String nameInDanish, String nameInEnglish, String studyProgramme, String courseType, Integer ects, String courseLanguage, String minNoOfStudenst, String expectedNoOfStudents, String maxNoOfStudents, String prereuisitues, String learningOutcome, String content, String learningActivities, String examForm, Teacher teacher) {
         this.nameInDanish = nameInDanish;
         this.nameInEnglish = nameInEnglish;
         this.studyProgramme = studyProgramme;
@@ -43,7 +43,7 @@ public class Course {
         this.content = content;
         this.learningActivities = learningActivities;
         this.examForm = examForm;
-        this.teachers = teachers;
+        this.teacher = teacher;
     }
 
     public Course(){
@@ -174,11 +174,11 @@ public class Course {
         this.examForm = examForm;
     }
 
-    public Teacher getTeachers() {
-        return teachers;
+    public Teacher getTeacher() {
+        return teacher;
     }
 
-    public void setTeachers(Teacher teachers) {
-        this.teachers = teachers;
+    public void setTeacher(Teacher teacher) {
+        this.teacher = teacher;
     }
 }

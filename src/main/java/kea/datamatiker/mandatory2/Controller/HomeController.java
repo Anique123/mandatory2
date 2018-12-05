@@ -17,8 +17,8 @@ import java.util.List;
 @Controller
     public class HomeController {
 
-    @Autowired
-    private TeacherRepository teacherRepository;
+    /*@Autowired
+    private TeacherRepository teacherRepository;*/
 
         @GetMapping("/")
         public String root(
@@ -28,7 +28,7 @@ import java.util.List;
                         String lastName,
                 @RequestParam(defaultValue = "NO_ROLE")
                         String role) {
-            Teacher u = teacherRepository.findBylastName(lastName);
+            //Teacher u = teacherRepository.findBylastName(lastName);
             savetoresp();
             return "index";
         }
@@ -52,7 +52,7 @@ import java.util.List;
 
         public void savetoresp(){
             Teacher t = new Teacher("Hans", "Hansen", "Teacher");
-            teacherRepository.save(t);
+            //teacherRepository.save(t);
 
         }
 
