@@ -1,11 +1,16 @@
 package kea.datamatiker.mandatory2.Model;
 
-import javax.persistence.*;
+import kea.datamatiker.mandatory2.Repository.CourseRepository;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity
 public class Course {
-    @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id
     private Long id;
     private String nameInDanish;
     private String nameInEnglish;
@@ -21,14 +26,10 @@ public class Course {
     private String content;
     private String learningActivities;
     private String examForm;
+    private String[] teachers;
+    private String signUpToCourse;
 
-    @OneToOne
-    private Teacher teacher;
-
-    @OneToOne
-    private Student signUpToCourse;
-
-    public Course(String nameInDanish, String nameInEnglish, String studyProgramme, String courseType, Integer ects, String courseLanguage, String minNoOfStudenst, String expectedNoOfStudents, String maxNoOfStudents, String prereuisitues, String learningOutcome, String content, String learningActivities, String examForm, Teacher teacher) {
+    public Course( String nameInDanish, String nameInEnglish, String studyProgramme, String courseType, Integer ects, String courseLanguage, String minNoOfStudenst, String expectedNoOfStudents, String maxNoOfStudents, String prereuisitues, String learningOutcome, String content, String learningActivities, String examForm, String[] teachers) {
         this.nameInDanish = nameInDanish;
         this.nameInEnglish = nameInEnglish;
         this.studyProgramme = studyProgramme;
@@ -43,14 +44,10 @@ public class Course {
         this.content = content;
         this.learningActivities = learningActivities;
         this.examForm = examForm;
-        this.teacher = teacher;
+        this.teachers = teachers;
     }
 
-    public Course(){
-
-    }
-
-    public Course(String nameInDanish, String nameInEnglish){
+    public Course() {
 
     }
 
@@ -174,11 +171,19 @@ public class Course {
         this.examForm = examForm;
     }
 
-    public Teacher getTeacher() {
-        return teacher;
+    public String[] getTeachers() {
+        return teachers;
     }
 
-    public void setTeacher(Teacher teacher) {
-        this.teacher = teacher;
+    public void setTeachers(String[] teachers) {
+        this.teachers = teachers;
+    }
+
+    public String getSignUpToCourse() {
+        return signUpToCourse;
+    }
+
+    public void setSignUpToCourse(String signUpToCourse) {
+        this.signUpToCourse = signUpToCourse;
     }
 }

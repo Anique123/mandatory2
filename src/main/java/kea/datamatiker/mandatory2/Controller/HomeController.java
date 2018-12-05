@@ -11,14 +11,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.List;
 
 
 @Controller
     public class HomeController {
 
-    /*@Autowired
-    private TeacherRepository teacherRepository;*/
+    @Autowired
+    private TeacherRepository teacherRepository;
 
         @GetMapping("/")
         public String root(
@@ -28,11 +27,10 @@ import java.util.List;
                         String lastName,
                 @RequestParam(defaultValue = "NO_ROLE")
                         String role) {
-            //Teacher u = teacherRepository.findBylastName(lastName);
+            Teacher u = teacherRepository.findBylastName(lastName);
             savetoresp();
             return "index";
         }
-
 
         @GetMapping("/student")
         public String userIndex() {
@@ -52,7 +50,7 @@ import java.util.List;
 
         public void savetoresp(){
             Teacher t = new Teacher("Hans", "Hansen", "Teacher");
-            //teacherRepository.save(t);
+            teacherRepository.save(t);
 
         }
 

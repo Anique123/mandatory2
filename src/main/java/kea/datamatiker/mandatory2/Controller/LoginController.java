@@ -8,6 +8,8 @@ import org.springframework.stereotype.Controller;
 @Controller
 public class LoginController {
 
+    @Autowired
+    private TeacherRepository teacherRepository;
 
 
 
