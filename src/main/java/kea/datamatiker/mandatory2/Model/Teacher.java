@@ -20,6 +20,10 @@ public class Teacher {
         this.role = role;
     }
 
+    public Teacher(){
+
+    }
+
     public Long getId() {
         return id;
     }

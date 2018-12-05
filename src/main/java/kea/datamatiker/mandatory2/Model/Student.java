@@ -1,7 +1,5 @@
 package kea.datamatiker.mandatory2.Model;
 
-import kea.datamatiker.mandatory2.Repository.StudentRepository;
-
 import javax.persistence.*;
 
 @Entity
@@ -18,9 +16,9 @@ public class Student {
     private Login login;
 
 
-    public Student(String name, String lastName, Login login) {
+    public Student(String name, String surName, Login login) {
         this.name = name;
-        this.lastName = lastName;
+        this.lastName = surName;
         this.login = login;
     }
 
