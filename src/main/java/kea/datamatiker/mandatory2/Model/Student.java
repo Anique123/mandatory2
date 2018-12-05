@@ -9,17 +9,14 @@ public class Student {
     private Long studentId;
     private String name;
     private String lastName;
-    private String[] courses;
+    private String courses;
     private String role;
 
-    @OneToOne
-    private Login login;
 
 
-    public Student(String name, String surName, Login login) {
+    public Student(String name, String surName) {
         this.name = name;
         this.lastName = surName;
-        this.login = login;
     }
 
     public Long getStudentId() {
@@ -46,11 +43,11 @@ public class Student {
         this.lastName = lastName;
     }
 
-    public String[] getCourses() {
+    public String getCourses() {
         return courses;
     }
 
-    public void setCourses(String[] courses) {
+    public void setCourses(String courses) {
         this.courses = courses;
     }
 
@@ -62,11 +59,4 @@ public class Student {
         this.role = role;
     }
 
-    public Login getLogin() {
-        return login;
-    }
-
-    public void setLogin(Login login) {
-        this.login = login;
-    }
 }
