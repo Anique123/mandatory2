@@ -26,7 +26,7 @@
                 <label for="inputTeacher">Teachers</label>
                 <select id="inputTeacher" class="form-control" th:field="${course.teacher}" required="true">
                     <option value="" selected="true">Choose...</option>
-                    <option th:each="teacher:${teachers}" th:value="${teacher.id}" th:text="${teacher.firstName}"></option>
+                    <option th:each="teacher:${Teachers}" th:value="${teacher.id}" th:text="${teacher.firstName}"></option>
                 </select>
             </div>
 

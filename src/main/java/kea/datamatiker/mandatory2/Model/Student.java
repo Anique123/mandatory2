@@ -19,6 +19,9 @@ public class Student {
         this.lastName = surName;
     }
 
+    public Student(){
+
+    }
     public Long getStudentId() {
         return studentId;
     }
