@@ -1,7 +1,5 @@
 package kea.datamatiker.mandatory2.Model;
 
-import kea.datamatiker.mandatory2.Repository.StudentRepository;
-
 import javax.persistence.*;
 
 @Entity
@@ -10,7 +8,7 @@ public class Student {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long studentId;
     private String name;
-    private String lastName;
+    private String surName;
     private String[] courses;
     private String role;
 
@@ -18,9 +16,9 @@ public class Student {
     private Login login;
 
 
-    public Student(String name, String lastName, Login login) {
+    public Student(String name, String surName, Login login) {
         this.name = name;
-        this.lastName = lastName;
+        this.surName = surName;
         this.login = login;
     }
 
@@ -40,12 +38,12 @@ public class Student {
         this.name = name;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getSurName() {
+        return surName;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setSurName(String surName) {
+        this.surName = surName;
     }
 
     public String[] getCourses() {
