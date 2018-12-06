@@ -30,6 +30,33 @@
         <p>Course language</p>
         <input type="text" th:field="${course.courseLanguage}"/>
 
+        <p>Teacher name</p>
+        <input type="text" th:field="${course.teacher.firstName}"/>
+
+        <p>minimum number of students</p>
+        <input type="text" th:field="${course.minNoOfStudents}"/>
+
+        <p>Expected number of students</p>
+        <input type="text" th:field="${course.expectedNoOfStudents}"/>
+
+        <p>Max number of students</p>
+        <input type="text" th:field="${course.maxNoOfStudents}"/>
+
+        <p>Prereuisitues</p>
+        <input type="textarea" th:field="${course.prereuisitues}"/>
+
+        <p>Learning outcome</p>
+        <input type="textarea" th:field="${course.learningOutcome}"/>
+
+        <p>Content</p>
+        <input type="textarea" th:field="${course.content}"/>
+
+        <p>Learning activities</p>
+        <input type="textarea" th:field="${course.learningActivities}"/>
+
+        <p>Exam form</p>
+        <input type="text" th:field="${course.examForm}"/>
+
 
 
         <input type="submit" class="btn-primary" value="Gem"/>

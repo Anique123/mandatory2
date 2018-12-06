@@ -72,6 +72,7 @@ public class TeacherController {
    @PostMapping("/teacher/courseEdit")
    public String courseEdit(@ModelAttribute Course course){
        courseRepository.save(course);
+       teacherRepository.save(course.getTeacher());
        return "redirect:/teacher/index";
    }
 

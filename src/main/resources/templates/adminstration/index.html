@@ -1,68 +1,71 @@
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
-
-<!DOCTYPE html >
-<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{fragments/layout}">
 <head>
-    <title>Login Page</title>
-    <!--Made with love by Mutiullah Samim -->
-
-    <!--Bootsrap 4 CDN-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-
-    <!--Fontawesome CDN-->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-
-    <!--Custom styles-->
-    <link rel="stylesheet" type="text/css" href="index.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+          integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous"/>
+    <title>Index</title>
 </head>
 <body>
-<div class="container">
-    <div class="d-flex justify-content-center h-100">
-        <div class="card">
-            <div class="card-header">
-                <h3>Adminstration Sign In</h3>
-                <div class="d-flex justify-content-end social_icon">
-                    <span><i class="fab fa-facebook-square"></i></span>
-                    <span><i class="fab fa-google-plus-square"></i></span>
-                    <span><i class="fab fa-twitter-square"></i></span>
-                </div>
-            </div>
-            <div class="card-body">
-                <form method="post" th:action="@{/login}">
-                    <div class="input-group form-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="fas fa-user"></i></span>
-                        </div>
-                        <input type="text" class="form-control" placeholder="username">
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1 class="display-4">Courses <a href="/course/create" class="btn btn-outline-primary">Add new course</a></h1>
 
-                    </div>
-                    <div class="input-group form-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="fas fa-key"></i></span>
-                        </div>
-                        <input type="password" class="form-control" placeholder="password">
-                    </div>
-                    <div class="row align-items-center remember">
-                        <input type="checkbox">Remember Me
-                    </div>
-                    <div class="form-group">
-                        <input type="submit" value="Login" class="btn float-right login_btn">
-                    </div>
-                </form>
-            </div>
-            <div class="card-footer">
-                <div class="d-flex justify-content-center links">
-                    <a href="/student/index">Login for students</a>
-                </div>
-                <div class="d-flex justify-content-center">
-                    <a href="/teacher/index" th:href="@{teacher/index}">Login for teachers</a>
-                </div>
-            </div>
-        </div>
+
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">Elev til kurset</th>
+                <th scope="col">Kursus navn</th>
+                <th scope="col">Course name</th>
+                <th scope="col">Studyprogramme</th>
+                <th scope="col">Coursetype</th>
+                <th scope="col">ECTS</th>
+                <th scope="col">Course language</th>
+                <th scope="col">Minimum number of students</th>
+                <th scope="col">Expected number of students</th>
+                <th scope="col">Maximum number of students</th>
+                <th scope="col">Prereuisitues</th>
+                <th scope="col">Learning outcome</th>
+                <th scope="col">Content</th>
+                <th scope="col">Leatning acitivities</th>
+                <th scope="col">Examform</th>
+                <th scope="col">Teacher(s)</th>
+                <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="course:${coursesToBeSendToView}">
+                <td th:text="${course.signUpToCourse}">{{Elev tilegnet til kurset}}</td>
+                <td th:text="${course.nameInDanish}">{{Firstname}}</td>
+                <td th:text="${course.nameInEnglish}">{{Lastname}}</td>
+                <td th:text="${course.studyProgramme}">{{Role}}</td>
+                <td th:text="${course.courseType}">{{Firstname}}</td>
+                <td th:text="${course.ects}">{{Lastname}}</td>
+                <td th:text="${course.courseLanguage}">{{Role}}</td>
+                <td th:text="${course.minNoOfStudents}">{{Firstname}}</td>
+                <td th:text="${course.expectedNoOfStudents}">{{Lastname}}</td>
+                <td th:text="${course.maxNoOfStudents}">{{Role}}</td>
+                <td th:text="${course.prereuisitues}">{{Firstname}}</td>
+                <td th:text="${course.learningOutcome}">{{Lastname}}</td>
+                <td th:text="${course.content}">{{Role}}</td>
+                <td th:text="${course.learningActivities}">{{Firstname}}</td>
+                <td th:text="${course.examForm}">{{Lastname}}</td>
+                <td th:text="${course.teacher}">{{Role}}</td>
+                <td>
+                    <a th:href="'/teacher/courseEdit/'+${course.getId()}"><button class="btn-warning" style="width:30%">Rediger</button></a>
+                    <a th:href="'/teacher/courseDelete/'+${course.getId()}"><button class="btn-danger" style="width:30%">Slet</button></a>
+                </td>
+            </tr>
+
+            </tbody>
+        </table>
     </div>
 </div>
+
+
 </body>
 </html>

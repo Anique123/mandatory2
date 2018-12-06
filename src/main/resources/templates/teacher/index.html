@@ -11,7 +11,7 @@
 </head>
 <body>
 <div class="jumbotron jumbotron-fluid">
-    <div class="container">
+    <div class="table-responsive">
         <h1 class="display-4">Courses <a href="/course/create" class="btn btn-outline-primary">Add new course</a></h1>
 
 
@@ -52,10 +52,10 @@
                 <td th:text="${course.content}">{{Role}}</td>
                 <td th:text="${course.learningActivities}">{{Firstname}}</td>
                 <td th:text="${course.examForm}">{{Lastname}}</td>
-                <td th:text="${course.teacher}">{{Role}}</td>
+                <td th:text="${course.teacher.firstName}">{{Role}}</td>
                 <td>
-                    <a th:href="'/teacher/courseEdit/'+${course.getId()}"><button class="btn-warning" style="width:30%">Rediger</button></a>
-                    <a th:href="'/teacher/courseDelete/'+${course.getId()}"><button class="btn-danger" style="width:30%">Slet</button></a>
+                    <a th:href="'/teacher/courseEdit/'+${course.getId()}"><button class="btn-warning" style="responsive">Rediger</button></a>
+                    <a th:href="'/teacher/courseDelete/'+${course.getId()}"><button class="btn-danger" style="responsive">Slet</button></a>
                 </td>
             </tr>
 
