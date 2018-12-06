@@ -1,0 +1,3 @@
+Teacher er den eneste der virker lige nu. Der kan oprettes kursus, ændrers i kurses, kursus ppdateres i databasen når der opdateres eller slettes. 
+Koden virker. 
+Mangler: Student side er ikke sat op, men delvist kodet. 
