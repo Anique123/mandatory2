@@ -30,7 +30,7 @@ import java.util.List;
                         String role) {
             //Teacher u = teacherRepository.findBylastName(lastName);
             savetoresp();
-            return "indexhomesite";
+            return "index";
         }
 
 

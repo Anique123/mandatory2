@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{fragments/layout}">
+<head>
+
+
+    <style>
+        body{
+            margin: 0;
+        }
+
+        div {
+            overflow: hidden;
+            background-color: #233249;
+            position: fixed;
+            top: 0;
+            width: 100%;
+        }
+        ul {
+            list-style-type: none;
+            border: 0;
+            margin:0 auto;
+            padding: 0;
+            overflow: hidden;
+            background-color: #233249;
+        }
+
+
+
+        li {
+            float: left;
+        }
+
+        li a {
+            display: flex;
+            color: #fff;
+            text-align: center;
+            text-transform: uppercase;
+            font-family: "Helvetica Neue Condensed",sans-serif;
+            padding: 25px 16px;
+            text-decoration: none;
+            font-weight: bold;
+
+            letter-spacing: 0.5px;
+        }
+
+        li a:hover:not(.active) {
+            background-color: #111;
+
+        }
+
+        .Responsive {
+            width: 100%;
+            height: auto;
+        }
+
+
+
+
+    </style>
+</head>
+<body>
+
+<!--<body class="responsive" background="/css/KEA_logo_EN_Web.jpg"></body>-->
+<img src="/css/KEA_logo_EN_Web.jpg" alt="Nature" class="Responsive"/>
+<ul>
+    <div class="brand">
+        <li><a><img class="hidden-xs hidden-sm" src="/css/logo-main-black-single.png" height="18" width="80" alt=""/></a></li>
+    <li><a href="/adminstration/index">Administrator</a></li>
+    <li><a href="/teacher/index">Teacher </a></li>
+    <li><a href="/student">Student</a></li>
+
+</ul>
+</a>
+</div>
+</body>
+</html>
+</head>
+<body>
+
+
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col"></th>
+
+                <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="teacher:${teacherToBeSendToView}">
+                <td th:text="${teacher.firstName}">{{Firstname}}</td>
+                <td th:text="${teacher.lastName}">{{Lastname}}</td>
+                <td th:text="${teacher.role}">{{Role}}</td>
+                <td>
+                    <a th:href="'/car/edit/'+${car.id}" class="btn btn-outline-warning"> Edit </a>
+                    <button type="button" class="car-delete btn btn-outline-danger" th:attr="data-id=${car.id}">Delete
+                    </button>
+                </td>
+            </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>
