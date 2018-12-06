@@ -22,7 +22,7 @@ public class Course {
     private String learningActivities;
     private String examForm;
 
-    @OneToOne
+    @OneToOne(cascade = {CascadeType.ALL})
     private Teacher teacher;
 
     @OneToOne

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
@@ -23,11 +24,22 @@ public class StudentController {
     public String student(Model m){
         List<Course> courses = courseRepository.findAll();
         m.addAttribute("coursesToBeSendToView", courses);
-        savetoresp();
         List<Student> students = studentRepository.findAll();
         m.addAttribute("Students", students);
         return "student/index";
     }
+
+    @GetMapping("/student/index/{Id}")
+        public String studentPage(Model m, @PathVariable("Id") Long Id){
+            Student student = studentRepository.findStudentById(Id);
+            List<Student> studentlist = studentRepository.findAllById(Id);
+            m.addAttribute("studentlist", studentlist);
+            return "";
+
+
+        }
+
+
 
     public void savetoresp(){
         Student t = new Student("Hans", "Hansen");
