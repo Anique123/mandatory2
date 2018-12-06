@@ -14,9 +14,9 @@ public class Student {
 
 
 
-    public Student(String name, String surName) {
+    public Student(String name, String lastName) {
         this.name = name;
-        this.lastName = surName;
+        this.lastName = lastName;
     }
 
     public Long getStudentId() {

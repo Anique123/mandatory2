@@ -13,7 +13,7 @@ public class Course {
     private String courseType;
     private Integer ects;
     private String courseLanguage;
-    private String minNoOfStudenst;
+    private String minNoOfStudents;
     private String expectedNoOfStudents;
     private String maxNoOfStudents;
     private String prereuisitues;
@@ -28,14 +28,14 @@ public class Course {
     @OneToOne
     private Student signUpToCourse;
 
-    public Course(String nameInDanish, String nameInEnglish, String studyProgramme, String courseType, Integer ects, String courseLanguage, String minNoOfStudenst, String expectedNoOfStudents, String maxNoOfStudents, String prereuisitues, String learningOutcome, String content, String learningActivities, String examForm, Teacher teacher) {
+    public Course(String nameInDanish, String nameInEnglish, String studyProgramme, String courseType, Integer ects, String courseLanguage, String minNoOfStudents, String expectedNoOfStudents, String maxNoOfStudents, String prereuisitues, String learningOutcome, String content, String learningActivities, String examForm, Teacher teacher) {
         this.nameInDanish = nameInDanish;
         this.nameInEnglish = nameInEnglish;
         this.studyProgramme = studyProgramme;
         this.courseType = courseType;
         this.ects = ects;
         this.courseLanguage = courseLanguage;
-        this.minNoOfStudenst = minNoOfStudenst;
+        this.minNoOfStudents = minNoOfStudents;
         this.expectedNoOfStudents = expectedNoOfStudents;
         this.maxNoOfStudents = maxNoOfStudents;
         this.prereuisitues = prereuisitues;
@@ -44,6 +44,24 @@ public class Course {
         this.learningActivities = learningActivities;
         this.examForm = examForm;
         this.teacher = teacher;
+    }
+
+    public Course(String nameInDanish, String nameInEnglish, String studyProgramme, String courseType, Integer ects, String courseLanguage, String minNoOfStudents, String expectedNoOfStudents, String maxNoOfStudents, String prereuisitues, String learningOutcome, String content, String learningActivities, String examForm, Student signUpToCourse) {
+        this.nameInDanish = nameInDanish;
+        this.nameInEnglish = nameInEnglish;
+        this.studyProgramme = studyProgramme;
+        this.courseType = courseType;
+        this.ects = ects;
+        this.courseLanguage = courseLanguage;
+        this.minNoOfStudents = minNoOfStudents;
+        this.expectedNoOfStudents = expectedNoOfStudents;
+        this.maxNoOfStudents = maxNoOfStudents;
+        this.prereuisitues = prereuisitues;
+        this.learningOutcome = learningOutcome;
+        this.content = content;
+        this.learningActivities = learningActivities;
+        this.examForm = examForm;
+        this.signUpToCourse = signUpToCourse;
     }
 
     public Course(){
@@ -110,12 +128,12 @@ public class Course {
         this.courseLanguage = courseLanguage;
     }
 
-    public String getMinNoOfStudenst() {
-        return minNoOfStudenst;
+    public String getMinNoOfStudents() {
+        return minNoOfStudents;
     }
 
-    public void setMinNoOfStudenst(String minNoOfStudenst) {
-        this.minNoOfStudenst = minNoOfStudenst;
+    public void setMinNoOfStudents(String minNoOfStudents) {
+        this.minNoOfStudents = minNoOfStudents;
     }
 
     public String getExpectedNoOfStudents() {
@@ -180,5 +198,13 @@ public class Course {
 
     public void setTeacher(Teacher teacher) {
         this.teacher = teacher;
+    }
+
+    public Student getSignUpToCourse() {
+        return signUpToCourse;
+    }
+
+    public void setSignUpToCourse(Student signUpToCourse) {
+        this.signUpToCourse = signUpToCourse;
     }
 }

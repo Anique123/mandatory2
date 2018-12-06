@@ -11,12 +11,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class TeacherAPIController {
 
-    @Autowired
-    private CourseRepository courseRepository;
+    /*@Autowired
+    private CourseRepository courseRepository;*/
 
-    @PostMapping("/course/new")
+    /*@PostMapping("/course/new")
     public ResponseEntity<Course> saveCourse(Course course){
         Course newCourse = courseRepository.save(course);
         return new ResponseEntity(newCourse, HttpStatus.OK);
-    }
+    }*/
 }

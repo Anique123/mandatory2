@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <meta charset="UTF-8">
+    <title>Delete course</title>
+</head>
+<body>
+
+<form method="post" th:action="@{/teacher/courseDelete}">
+    <h1 style="text-align: center;">Er du sikker på du vil slette dette kurses?</h1>
+    <hr />
+
+
+    <input class="btn-warning " type="submit"  value="Slet"/>
+
+</form>
+<a href="/teacher/index"><button class="btn-primary " >Annuller</button></a>
+
+
+</body>
+</html>

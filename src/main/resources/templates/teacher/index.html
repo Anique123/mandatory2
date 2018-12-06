@@ -44,7 +44,7 @@
                 <td th:text="${course.courseType}">{{Firstname}}</td>
                 <td th:text="${course.ects}">{{Lastname}}</td>
                 <td th:text="${course.courseLanguage}">{{Role}}</td>
-                <td th:text="${course.minNoOfStudenst}">{{Firstname}}</td>
+                <td th:text="${course.minNoOfStudents}">{{Firstname}}</td>
                 <td th:text="${course.expectedNoOfStudents}">{{Lastname}}</td>
                 <td th:text="${course.maxNoOfStudents}">{{Role}}</td>
                 <td th:text="${course.prereuisitues}">{{Firstname}}</td>
@@ -53,6 +53,10 @@
                 <td th:text="${course.learningActivities}">{{Firstname}}</td>
                 <td th:text="${course.examForm}">{{Lastname}}</td>
                 <td th:text="${course.teacher}">{{Role}}</td>
+                <td>
+                    <a th:href="'/teacher/courseEdit/'+${course.getId()}"><button class="btn-warning" style="width:30%">Rediger</button></a>
+                    <a th:href="'/teacher/courseDelete/'+${course.getId()}"><button class="btn-danger" style="width:30%">Slet</button></a>
+                </td>
             </tr>
 
             </tbody>

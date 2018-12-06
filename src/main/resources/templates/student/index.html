@@ -59,7 +59,7 @@
             <label for="inputStudent">Choose your name</label>
             <select id="inputStudent" >
                 <option value="" selected="true">Your name</option>
-                <option th:each="student:${students}" th:value="${student.studentId}" th:text="${student.name}"></option>
+                <option th:each="student:${Students}" th:value="${student.studentId}" th:text="${student.name}"></option>
             </select>
         </div>
     </div>

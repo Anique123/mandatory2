@@ -1,4 +1,4 @@
-package kea.datamatiker.mandatory2.Controller;
+/*package kea.datamatiker.mandatory2.Controller;
 
 import kea.datamatiker.mandatory2.Model.Course;
 import kea.datamatiker.mandatory2.Model.Student;
@@ -23,9 +23,16 @@ public class StudentController {
     public String student(Model m){
         List<Course> courses = courseRepository.findAll();
         m.addAttribute("coursesToBeSendToView", courses);
+        savetoresp();
         List<Student> students = studentRepository.findAll();
-        m.addAttribute("studentsToBeSendToView", students);
+        m.addAttribute("Students", students);
         return "student/index";
     }
 
-}
+    public void savetoresp(){
+        Student t = new Student("Hans", "Hansen");
+        studentRepository.save(t);
+
+    }
+
+}*/

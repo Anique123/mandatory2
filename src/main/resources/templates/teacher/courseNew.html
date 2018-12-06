@@ -12,28 +12,109 @@
 <body>
 <div class="jumbotron jumbotron-fluid">
     <div class="container">
-        <h1 class="display-4">Add New Course</h1>
-        <form method="post" action="/course/new" th:object="${course}">
+        <h1 class="display-4">Add new course</h1>
+        <form method="post" th:action="@{/course/create}" th:object="${course}">
             <div class="form-group">
                 <label for="brand">course</label>
-                <input type="text" class="form-control" id="brand" placeholder="Enter course" th:field="${course.nameInDanish}"
+                <input type="text" class="form-control" id="brand" placeholder="Enter course name in Danish" th:field="${course.nameInDanish}"
                        required="true"/>
             </div>
+                <div class="form-group">
+                    <label for="text">Course name in english</label>
+                    <input type="text" class="form-control" id="text" placeholder="Enter Name in Course name in english"
+                           th:field="${course.nameInEnglish}"
+                           required="true"/>
+                </div>
+                    <div class="form-group">
+                        <label for="text">Study programmer</label>
+                        <input type="text" class="form-control" id="color" placeholder="Enter Study programmer"
+                               th:field="${course.studyProgramme}"
+                               required="true"/>
+                    </div>
+                        <div class="form-group">
+                            <label for="text">Course type</label>
+                            <input type="text" class="form-control" id="color" placeholder="Enter Course type"
+                                   th:field="${course.courseType}"
+                                   required="true"/>
+                        </div>
 
+                                <div class="form-group">
+                                    <label for="ECTS">ECTS points</label>
+                                    <input type="number" class="form-control" id="ECTS" placeholder="Enter ECTS points"
+                                           min="5" max="150"
+                                           th:field="${course.ects}"
+                                           required="true"/>
+                                </div>
 
+                                    <div class="form-group">
+                                        <label for="text">Course language</label>
+                                        <input type="text" class="form-control" id="color" placeholder="Enter Course language"
+                                               th:field="${course.courseLanguage}"
+                                               required="true"/>
+                                    </div>
 
-            <div class="form-group">
-                <label for="inputTeacher">Teachers</label>
-                <select id="inputTeacher" class="form-control" th:field="${course.teacher}" required="true">
-                    <option value="" selected="true">Choose...</option>
-                    <option th:each="teacher:${teachers}" th:value="${teacher.id}" th:text="${teacher.firstName}"></option>
-                </select>
-            </div>
+                                        <div class="form-group">
+                                            <label for="text">minimum no of students</label>
+                                            <input type="text" class="form-control" id="color" placeholder="Enter minimum no of students"
+                                                   th:field="${course.minNoOfStudents}"
+                                                   required="true"/>
+                                        </div>
+                                            <div class="form-group">
+                                                <label for="text">Expected no of students</label>
+                                                <input type="text" class="form-control" id="color" placeholder="Enter expected no of students"
+                                                       th:field="${course.expectedNoOfStudents}"
+                                                       required="true"/>
+                                            </div>
+                                                <div class="form-group">
+                                                    <label for="text">Maximum no of students</label>
+                                                    <input type="text" class="form-control" id="color" placeholder="Enter maximum no of students"
+                                                           th:field="${course.maxNoOfStudents}"
+                                                           required="true"/>
+                                                </div>
+                                                    <div class="form-group">
+                                                        <label for="text">Prereuisitues</label>
+                                                        <textarea type="text" class="form-control" id="color" placeholder="Enter prereuisitues"
+                                                               th:field="${course.prereuisitues}"
+                                                               required="true"/>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="text">Learning outcome</label>
+                                                        <textarea type="text" class="form-control" id="color" placeholder="Enter learning outcome"
+                                                               th:field="${course.LearningOutcome}"
+                                                               required="true"/>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="text">Content</label>
+                                                        <textarea type="text" class="form-control" id="color" placeholder="Enter content"
+                                                               th:field="${course.content}"
+                                                               required="true"/>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="text">Learning activitires</label>
+                                                        <textarea type="text" class="form-control" id="color" placeholder="Enter learning activities"
+                                                               th:field="${course.LearningActivities}"
+                                                               required="true"/>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="text">Exam form</label>
+                                                        <input type="text" class="form-control" id="color" placeholder="Enter exam form"
+                                                               th:field="${course.examForm}"
+                                                               required="true"/>
+                                                    </div>
 
-            <button type="submit" class="btn btn-outline-success">Save</button>
-            <button type="reset" class="btn btn-outline-danger">Reset</button>
+                                                    <div class="form-group">
+                                                        <label for="inputUser">Teacher</label>
+                                                        <select id="inputUser" class="form-control" th:field="${course.teacher}" required="true">
+                                                            <option value="" selected="true">Choose...</option>
+                                                            <option th:each="teacher:${Teachers}" th:value="${teacher.id}" th:text="${teacher.firstName}"></option>
+                                                        </select>
+                                                    </div>
+
+                                                    <button type="submit" class="btn btn-outline-success">Save</button>
+                                                    <button type="reset" class="btn btn-outline-danger">Reset</button>
         </form>
     </div>
+</div>
 
 </body>
 </html>

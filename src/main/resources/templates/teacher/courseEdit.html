@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Enrollment</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <meta charset="UTF-8">
+    <title>Rediger stævne</title>
+</head>
+<body>
+<div class="container">
+    <h1>Edit course</h1>
+    <form method="post" th:action="@{/teacher/courseEdit}" th:object="${course}">
+
+        <p>ID</p>
+        <input type="number" th:field="${course.Id}" readonly="readonly" />
+
+        <p>Name in english</p>
+        <input type="text" th:field="${course.nameInEnglish}"/>
+
+        <p>Name in danish</p>
+        <input type="text" th:field="${course.nameInDanish}"/>
+
+        <p>Study Programme</p>
+
+        <input type="text" th:field="${course.StudyProgramme}"/>
+
+        <p>ECTS</p>
+        <input type="number" th:field="${course.ects}"/>
+
+        <p>Course language</p>
+        <input type="text" th:field="${course.courseLanguage}"/>
+
+
+
+        <input type="submit" class="btn-primary" value="Gem"/>
+
+    </form>
+    <a href="/teacher/index"><button class="btn-primary " >Annuller</button></a>
+
+</div>
+
+</body>
+</html>
